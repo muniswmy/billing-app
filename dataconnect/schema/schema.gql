@@ -1,0 +1,46 @@
+type User @table {
+  displayName: String!
+  createdAt: Timestamp!
+  email: String
+  photoUrl: String
+}
+
+type Product @table {
+  name: String!
+  price: Float!
+  stockQuantity: Int!
+  createdAt: Timestamp!
+  description: String
+  category: String
+}
+
+type Cart @table {
+  user: User!
+  createdAt: Timestamp!
+  updatedAt: Timestamp!
+  discountApplied: DiscountOffer
+}
+
+type CartItem @table {
+  cart: Cart!
+  product: Product!
+  quantity: Int!
+  priceAtTimeOfAddition: Float!
+}
+
+type DiscountOffer @table {
+  name: String!
+  discountPercentage: Float!
+  isActive: Boolean!
+  createdAt: Timestamp!
+  minimumCartValue: Float
+  validUntil: Timestamp
+}
+
+type Bill @table {
+  user: User!
+  totalAmount: Float!
+  billedAt: Timestamp!
+  itemsDetails: String! # Storing as JSON string
+  discountAmount: Float
+}
