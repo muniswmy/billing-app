@@ -19,19 +19,19 @@ A modern **Billing Application** built using React that allows users to browse p
 ## 📸 Screenshots
 
 ### 🏠 Product Page
-![Products](./screenshots/products.png)
+![Products]("C:\Users\Kiran.Ganachari\Pictures\Screenshots\Screenshot 2026-03-27 224835.png")
 
 ### 🛒 Cart Page
-![Cart](./screenshots/cart.png)
+![Cart]("C:\Users\Kiran.Ganachari\Pictures\Screenshots\Screenshot 2026-03-27 224850.png")
 
 ### 📊 Order Summary
-![Summary](./screenshots/summary.png)
+![Summary]("C:\Users\Kiran.Ganachari\Pictures\Screenshots\Screenshot 2026-03-27 224902.png")
 
 ### 💳 Checkout Page
-![Checkout](./screenshots/checkout.png)
+![Checkout]("C:\Users\Kiran.Ganachari\Pictures\Screenshots\Screenshot 2026-03-27 224915.png")
 
 ### ✅ Order Success
-![Success](./screenshots/success.png)
+![Success]("C:\Users\Kiran.Ganachari\Pictures\Screenshots\Screenshot 2026-03-27 224928.png")
 
 ---
 
