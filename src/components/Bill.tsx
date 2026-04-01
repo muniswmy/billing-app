@@ -1,21 +1,30 @@
 import { useSelector } from "react-redux";
+import { calculateItemTotal } from "../utils/discount";
 
 export default function Bill() {
   const { items } = useSelector((state: any) => state.cart);
 
-  const subtotal = items.reduce(
-    (sum: number, i: any) => sum + i.price * i.quantity,
-    0
-  );
+  let subtotal = 0;
+  let totalSavings = 0;
 
-  const discount = subtotal > 500 ? 50 : 0;
-  const total = subtotal - discount;
+  items.forEach((item: any) => {
+    const { total, savings } = calculateItemTotal(item, items);
+
+    subtotal += total;
+    totalSavings += savings;
+  });
 
   return (
     <div>
-      <p>Subtotal: ₹{subtotal}</p>
-      <p>Discount: ₹{discount}</p>
-      <p className="font-bold">Total: ₹{total}</p>
+      <p>Sub Total: ₹{subtotal.toFixed(2)}</p>
+
+      <p className="text-green-600">
+        Savings: ₹{totalSavings.toFixed(2)}
+      </p>
+
+      <h2 className="font-bold text-lg">
+        Total Amount: ₹{subtotal.toFixed(2)}
+      </h2>
     </div>
   );
 }

@@ -1,34 +1,33 @@
 import { useSelector, useDispatch } from "react-redux";
 import { db } from "../firebase/config";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 import { clearCart } from "../features/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
 
 export default function Checkout() {
   const { items } = useSelector((state: any) => state.cart);
   const dispatch = useDispatch();
-   const navigate = useNavigate(); 
+  const navigate = useNavigate(); // 👈 important
 
   const handleCheckout = async () => {
     try {
-      await addDoc(collection(db, "orders"), {
-        items,
-        createdAt: serverTimestamp(),
-      });
+      await addDoc(collection(db, "orders"), { items });
 
       dispatch(clearCart());
-      alert("Order Saved Successfully!");
-       navigate("/");
+
+      alert("✅ Order placed successfully!");
+
+      navigate("/"); // 🔥 redirect to home
     } catch (error) {
       console.error(error);
-      alert("Error saving order");
+      alert("❌ Error placing order");
     }
   };
 
   return (
     <button
-      className="bg-green-600 text-white p-3 w-full rounded mt-4"
       onClick={handleCheckout}
+      className="bg-green-600 p-3 text-white w-full rounded"
     >
       Place Order
     </button>

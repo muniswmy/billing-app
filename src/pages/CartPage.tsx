@@ -13,10 +13,10 @@ export default function CartPage() {
 
       <div className="mt-6 text-right">
         <Link
-          to="/bill"
+          to="/checkout"
           className="bg-blue-600 text-white px-6 py-3 rounded-lg"
         >
-          Proceed to Bill →
+          Proceed to Checkout →
         </Link>
       </div>
     </div>
